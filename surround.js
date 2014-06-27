@@ -1,14 +1,14 @@
 /**
  * surround.js
- * 
+ *
  * Utility function for wrapping a search term in custom tags.
- * 
+ *
  * @param string blob       The string of text to search through
  * @param string term       The term to search for in blob
- * @param string tag        (Optional) The string that will wrap all instances of term in blob  
+ * @param string tag        (Optional) The string that will wrap all instances of term in blob
  * @param object tag        (Optional) If tag is an object, you can specify open and close tags
  *                          with tag.open_tag and tag.close_tag
- * 
+ *
  * @author Wells Johnston <wellsjohnston@gmail.com>
  */
 var SJS = {}
