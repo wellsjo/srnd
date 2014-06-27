@@ -1,8 +1,20 @@
-// tag can either be a string or an object with properties open_tag and close_tag
-var highlight = function(blob, term, tag) {
+/**
+ * surround.js
+ * 
+ * Utility function for wrapping a search term in custom tags.
+ * 
+ * @param string blob       The string of text to search through
+ * @param string term       The term to search for in blob
+ * @param string tag        (Optional) The string that will wrap all instances of term in blob  
+ * @param object tag        (Optional) If tag is an object, you can specify open and close tags
+ *                          with tag.open_tag and tag.close_tag
+ * 
+ * @author Wells Johnston <wellsjohnston@gmail.com>
+ */
+var surround = function(blob, term, tag) {
     var last_index = 0, indeces = Array(), index, open_tag, close_tag;
     if (typeof tag === 'undefined') {
-        open_tag = '<span class="highlight">';
+        open_tag = '<span class="">';
         close_tag = '</span>';
     } else if (typeof tag === 'string') {
         open_tag = tag;
