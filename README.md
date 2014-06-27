@@ -18,8 +18,8 @@ SJS.surround(text, 'really', '*');
 // Pretend this is a *really*, *really*, long string of text
 
 var tag = {
-  open_tag: '<a href="#">',
-  close_tag: '</a>
+  open_tag: "<a href='#'>",
+  close_tag: "</a>"
 }
 SJS.surround
 ```
