@@ -1,14 +1,17 @@
 surround.js is a utility function for wrapping text in any sort of tag
 
-It exposes the SJS object (surround js)
+surround.js exposes the SJS object (surround js).
 
-SJS has two functions, surround and highlight.
+SJS contains three functions, surround, tag, and highlight.
 
 SJS.surround(text, term, tag)
 SJS.surround takes 3 arguments: text to search through, the search term, and a tag.  Tag can either be a string or an object.  As a string, each instance of the search term will be surrounded by it.  As an object, the function expects two values:  tag.open_tag and tag.close_tag, which act as the opening and closing tags for the search terms.
 
 SJS.tag(text, term, tag, class)
-SJS.tag takes 4 arguments: text to search through, the search term, an html element tag, and class(es).  All instances of the search term will be wrapped in ```<[tag] class="[class]">[term]</[tag]>```
+SJS.tag takes 4 arguments: text to search through, the search term, an html element tag, and class(es).  All instances of the search term will be wrapped in ```<[tag] class="[class]">[term]</[tag]>```.
+
+SJS.highlight(text, term)
+SJS.highlight simply makes use of tag and surround to wrap all instances of term in ```<span style="background-color:"yellow">[term]</span>"``` for quick text highlighting. 
 
 Examples
 ========
