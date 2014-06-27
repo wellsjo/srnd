@@ -11,7 +11,8 @@
  *
  * @author Wells Johnston <wellsjohnston@gmail.com>
  */
-var SJS = {}
+ 
+var SJS = {};
 
 SJS.surround = function(blob, term, tag) {
     var last_index = blob.length, indeces = Array(), index, open_tag, close_tag;
