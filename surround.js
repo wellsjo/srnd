@@ -30,18 +30,23 @@ SJS.surround = function(blob, term, tag) {
         blob = blob.substring(0, index) + open_tag
             + blob.substring(index, index + term.length) + close_tag
             + blob.substring(index + term.length);
-            index = blob.toLowerCase().lastIndexOf(term.toLowerCase(), index - 1);
+        index = blob.toLowerCase().lastIndexOf(term.toLowerCase(), index - 1);
     }
     return blob;
 }
 
-SJS.highlight = function(blob, term, _class) {
-    if (typeof _class === 'undefined') {
-        var open_tag = '<span style="background-color: yellow">';
-    }
+SJS.tag = function(blob, term, tag, _class) {
+    new_tags = {
+        open_tag: '<' + tag + ' class="' + _class + '">"',
+        close_tag: '</' + tag + '>'
+    };
+    return SJS.surround(blob, term, new_tags);
+}
+
+SJS.highlight = function(blob, term) {
     var tag = {
-        open_tag: typeof open_tag === 'undefined' ? "<span class='" + _class + "'>" : open_tag,
-        close_tag: "</span>"
+        open_tag: '<span style="background-color:yellow">',
+        close_tag: '</span>'
     }
     return SJS.surround(blob, term, tag);
 }
