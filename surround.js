@@ -48,11 +48,11 @@ SJS.tag = function(blob, term, properties, case_s) {
             
         }
     }
-    new_tags = {
-        open_tag: '<' + properties.element + " " + attributes +">"',
+    var element = {
+        open_tag: '<' + properties.element + ' ' + attributes + '>',
         close_tag: '</' + properties.element + '>'
     };
-    return SJS.surround(blob, term, new_tags, case_s);
+    return SJS.surround(blob, term, element, case_s);
 }
 
 SJS.highlight = function(blob, term, case_s) {
