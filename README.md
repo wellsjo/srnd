@@ -16,7 +16,7 @@ SJS.highlight simply makes use of tag and surround to wrap all instances of term
 Examples
 ========
 
-SJS.surround(text, term, tag)
+**SJS.surround(text, term, tag[, case_sensitive])**  
 Surround text with custom tags
 ```
 var text = 'Pretend this is a really, REALLY long string of text.';
@@ -39,7 +39,7 @@ SJS.surround(text, 'string', my_tags);
 // Pretend this is a really, REALLY long <a href='some_url.com'>string</a> of text.
 ```
 
-SJS.tag(text, term, tag, class)
+**SJS.tag(text, term, element_options[, case_sensitive])**  
 A clean way to create HTML elements that wrap around text
 ```
 var text = 'I want to make buttons around a word.';
@@ -53,7 +53,7 @@ SJS.tag(text, 'buttons', my_tags, 'btn btn-danger');
 // I want to make <button class="btn btn-danger">buttons</button> around a word.
 ```
 
-SJS.highlight(text, term)
+**SJS.highlight(text, term[, case_sensitive])**  
 Shorthand for using SJS.surround to highlight text yellow
 ```
 var text = 'I want to highlight a word in this sentence.';
