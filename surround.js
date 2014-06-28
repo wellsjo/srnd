@@ -17,10 +17,7 @@ var SJS = {};
 
 SJS.surround = function(blob, term, tag, case_s) {
     var last_index = blob.length, indeces = Array(), index, open_tag, close_tag;
-    if (typeof tag === 'undefined') {
-        open_tag = '<span class="highlight">';
-        close_tag = '</span>';
-    } else if (typeof tag === 'string') {
+    if (typeof tag === 'string') {
         open_tag = tag;
         close_tag = tag;
     } else if (typeof tag === 'object') {
@@ -39,18 +36,29 @@ SJS.surround = function(blob, term, tag, case_s) {
     return blob;
 }
 
-SJS.tag = function(blob, term, tag, _class) {
+SJS.tag = function(blob, term, properties, case_s) {
+    var attributes = '';
+    for (attribute in properties) {
+        if (attribute !== 'element') {
+            if (properties[attribute] == false || properties[attribute] === null) {
+                attributes += attribute + " ";
+            } else {
+                attributes += attribute + '="' + properties[attribute] + ' "';    
+            }
+            
+        }
+    }
     new_tags = {
-        open_tag: '<' + tag + ' class="' + _class + '">"',
-        close_tag: '</' + tag + '>'
+        open_tag: '<' + properties.element + " " + attributes +">"',
+        close_tag: '</' + properties.element + '>'
     };
-    return SJS.surround(blob, term, new_tags);
+    return SJS.surround(blob, term, new_tags, case_s);
 }
 
-SJS.highlight = function(blob, term) {
+SJS.highlight = function(blob, term, case_s) {
     var tag = {
         open_tag: '<span style="background-color:yellow">',
         close_tag: '</span>'
     }
-    return SJS.surround(blob, term, tag);
+    return SJS.surround(blob, term, tag, case_s);
 }
