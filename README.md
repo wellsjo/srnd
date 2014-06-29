@@ -5,7 +5,7 @@ surround.js exposes the SJS object (surround js) and provides 5 useful functions
 SJS.surround, SJS.tag, SJS.highlight, SJS.bold, and SJS.italicize
 
 
-Examples
+Usage
 ========
 
 **SJS.surround(text, term, tag[, case_sensitive])**  
