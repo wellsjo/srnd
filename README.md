@@ -36,10 +36,12 @@ Shorthand for creating custom HTML elements
 ```
 var text = 'I want to make a button around a word.';
 
+// specify the element with the 'element' property
 var element_properties = {
   'element': 'button',
   'class': 'btn btn-danger',
-  'some_attribute': null
+  'some_attribute': null // if an attribute is null or false, it will
+                         // just appear by itself without a value
 };
 
 SJS.tag(text, 'buttons', element_properties);
