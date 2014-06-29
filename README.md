@@ -1,4 +1,4 @@
-surround.js is a set of fast and powerful utility functions for searching through large strings of text and wrapping 
+surround.js is a set of utility functions for searching through large strings of text and wrapping 
 a search term in custom tags.
 
 Let's say your website has a search function, and you want to highlight all the search results.  surround.js makes that very easy.
