@@ -1,7 +1,7 @@
 surround.js is a set of utility functions for searching through large strings of text and wrapping 
 a search term in custom tags.
 
-Let's say your website has a search function, and you want to highlight all the search results.  surround.js makes that very easy.
+Let's say you want to highlight or make button links out of all instances of a word in a huge article.  surround.js makes that very easy.
 
 
 Usage
