@@ -1,17 +1,23 @@
-surround.js is a utility function for wrapping text in any sort of tag
+surround.js is a utility function for searching through large strings of text and wrapping 
+a search term in custom tags.
 
 surround.js exposes the SJS object (surround js).
-
-SJS contains three functions, surround, tag, and highlight.
-
+```
+// The most general usecase: creating custom tags around a search term
 SJS.surround(text, term, tag[, case_sensitive])
-SJS.surround takes 3 arguments, and 1 optional argument: text to search through, the search term, a tag, and whether the search is case insensitive.  Tag can either be a string or an object.  As a string, each instance of the search term will be surrounded by it.  As an object, the function expects two values:  tag.open_tag and tag.close_tag, which act as the opening and closing tags for the search terms.  If case_s is true, case sensitive search will be used.
 
-SJS.tag(text, term, tag, class[, case_sensitive])
-SJS.tag takes 4 arguments: text to search through, the search term, an html element tag, and class(es).  All instances of the search term will be wrapped in ```<[tag] class="[class]">[term]</[tag]>```.
+// Shorthand for creating custom HTML elements, with any attributes
+SJS.tag(text, term, element_options[, case_sensitive])
 
+// Shorthand for highlighting text in HTML
 SJS.highlight(text, term[, case_sensitive])
-SJS.highlight simply makes use of tag and surround to wrap all instances of term in ```<span style="background-color:"yellow">[term]</span>"``` for quick text highlighting. 
+
+// Shorthand for bolding text in HTML
+SJS.bold(text, term[, case_sensitive])
+
+// Shorthand for italicizing text in HTML
+SJS.italicize(text, term[, case_sensitive])
+```
 
 Examples
 ========
