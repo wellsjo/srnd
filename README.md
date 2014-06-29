@@ -1,8 +1,7 @@
 surround.js is a set of fast and powerful utility functions for searching through large strings of text and wrapping 
 a search term in custom tags.
-  
-surround.js exposes the SJS object (surround js) and provides 5 useful functions:  
-SJS.surround, SJS.tag, SJS.highlight, SJS.bold, and SJS.italicize
+
+Let's say your website has a search function, and you want to highlight all the search results.  surround.js makes that very easy.
 
 
 Usage
