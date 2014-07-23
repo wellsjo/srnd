@@ -11,6 +11,9 @@
  *
  * @author Wells Johnston <wellsjohnston@gmail.com>
  */
+
+'use strict'
+
 var SJS = {};
 
 /**
@@ -26,24 +29,7 @@ var SJS = {};
  * @param bool   case_s     (Optional) If true, search will be case sensitive.  Default is false.
  */
 SJS.surround = function(text, term, tag, case_s) {
-    var last_index = text.length, indeces = Array(), index, open_tag, close_tag;
-    if (typeof tag === 'string') {
-        open_tag = tag;
-        close_tag = tag;
-    } else if (typeof tag === 'object') {
-        open_tag = tag.open_tag;
-        close_tag = tag.close_tag;
-    }
-    index = case_s ? text.lastIndexOf(term)
-        : text.toLowerCase().lastIndexOf(term.toLowerCase());
-    while (index !== -1) {
-        text = text.substring(0, index) + open_tag
-            + text.substring(index, index + term.length) + close_tag
-            + text.substring(index + term.length);
-        index = case_s ? text.lastIndexOf(term, index-1)
-            : text.toLowerCase().lastIndexOf(term.toLowerCase(), index - 1);
-    }
-    return text;
+    return text.replace(term, tag + term + tag);
 }
 
 
