@@ -3,6 +3,9 @@ a search term in custom tags.
 
 Let's say you want to highlight or make button links out of all instances of a word in a huge article.  surround.js makes that very easy.
 
+##License
+MIT
+
 
 Usage
 ========
