@@ -1,0 +1,19 @@
+{
+  "name": "surround.js",
+  "version": "0.0.1",
+  "description": "A small but elegent and fast utility belt for searching through large strings of text and wrapping search results in tags.  Faster than regex.",
+  "main": "surround.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wellsjo/surround.js.git"
+  },
+  "author": "Wells Johnston",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wellsjo/surround.js/issues"
+  },
+  "homepage": "https://github.com/wellsjo/surround.js#readme"
+}
