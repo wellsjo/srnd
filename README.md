@@ -1,41 +1,38 @@
-surround.js is a set of utility functions for searching through large strings of text and wrapping 
-a search term in custom tags.
+# srnd
 
-Let's say you want to highlight or make button links out of all instances of a word in a huge article.  surround.js makes that very easy.
+srnd is a set of utility functions for searching through large strings of text and wrapping search results in custom tags.
 
-##License
-MIT
+## Api
 
+**surround(text, term, tag[, case_sensitive])**  
 
-Usage
-========
+Simple example
+```javascript
+var srnd = require('srnd');
 
-**SJS.surround(text, term, tag[, case_sensitive])**  
-The most general usecase: creating custom tags around a search term
+var text = 'Really, really long string of text.';
+
+srnd.surround(text, 'really', '*');
 ```
-var text = 'Pretend this is a really, REALLY long string of text.';
-
-// Basic markdown bolding use-case
-SJS.surround(text, 'really', '*'); 
-// Pretend this is a *really*, *REALLY* long string of text.
-
-// Using case-sensitive search
-SJS.surround(text, 'really', '-', true);
-// Pretend this is a -really-, REALLY long string of text.
-
-// Using custom open and close tags to create links around instances of a word
+```
+*Really*, *really* long string of text.
+```
+Custom tags
+```javascript
 var my_tags = {
   open_tag: "<a href='some_url.com'>",
   close_tag: "</a>"
 };
 
-SJS.surround(text, 'string', my_tags);
-// Pretend this is a really, REALLY long <a href='some_url.com'>string</a> of text.
+srnd.surround(text, 'string', my_tags);
+```
+```
+Really, really long <a href='some_url.com'>string</a> of text.
 ```
 
-**SJS.tag(text, term, properties[, case_sensitive])**  
+**tag(text, term, properties[, case_sensitive])**  
 Shorthand for creating custom HTML elements
-```
+```javascript
 var text = 'I want to make a button around a word.';
 
 // specify the element with the 'element' property
@@ -46,30 +43,33 @@ var element_properties = {
                          // just appear by itself without a value
 };
 
-SJS.tag(text, 'buttons', element_properties);
+srnd.tag(text, 'buttons', element_properties);
 // I want to make a <button class="btn btn-danger" some_attribute>button</button> around a word.
 ```
 
-**SJS.highlight(text, term[, case_sensitive])**  
+**highlight(text, term[, case_sensitive])**  
 Shorthand for highlighting text yellow (in HTML)
-```
+```javascript
 var text = 'I want to highlight a word in this sentence.';
-SJS.highlight(text, 'highlight'); 
+srnd.highlight(text, 'highlight'); 
 // I want to <span style="background-color: yellow">highlight</span> a word in this sentence.
 ```
 
-**SJS.bold(text, term[, case_sensitive])**  
+**bold(text, term[, case_sensitive])**  
 Shorthand for bolding text (in HTML)
-```
+```javascript
 var text = 'I want to bold a word in this sentence.';
-SJS.highlight(text, 'bold'); 
+srnd.highlight(text, 'bold'); 
 // I want to <strong>bold</strong> a word in this sentence.
 ```
 
-**SJS.italicize(text, term[, case_sensitive])**  
+**italicize(text, term[, case_sensitive])**  
 Shorthand for italicizing text (in HTML)
-```
+```javascript
 var text = 'I want to italicize a word in this sentence.';
-SJS.highlight(text, 'italicize'); 
+srnd.highlight(text, 'italicize'); 
 // I want to <em>italicize</em> a word in this sentence.
 ```
+
+## License
+MIT
