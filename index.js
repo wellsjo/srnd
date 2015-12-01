@@ -32,10 +32,13 @@ srnd.surround = function(text, term, tag, case_s) {
     open_tag = tag.open_tag;
     close_tag = tag.close_tag;
   }
-  index = case_s ? text.lastIndexOf(term) : text.toLowerCase().lastIndexOf(term.toLowerCase());
+  index = case_s ? text.lastIndexOf(term) : text.toLowerCase().lastIndexOf(
+    term.toLowerCase());
   while (index !== -1) {
-    text = text.substring(0, index) + open_tag + text.substring(index, index + term.length) + close_tag + text.substring(index + term.length);
-    index = case_s ? text.lastIndexOf(term, index - 1) : text.toLowerCase().lastIndexOf(term.toLowerCase(), index - 1);
+    text = text.substring(0, index) + open_tag + text.substring(index, index +
+      term.length) + close_tag + text.substring(index + term.length);
+    index = case_s ? text.lastIndexOf(term, index - 1) : text.toLowerCase().lastIndexOf(
+      term.toLowerCase(), index - 1);
   }
   return text;
 }
@@ -57,7 +60,7 @@ srnd.tag = function(text, term, properties, case_s) {
   var attributes = '';
   for (attribute in properties) {
     if (attribute !== 'element') {
-      if (properties[attribute] == false || properties[attribute] === null || properties[attribute] === 'undefined' || properties[attribute] === '') {
+      if (properties[attribute]) {
         attributes += attribute + ' ';
       } else {
         attributes += attribute + '="' + properties[attribute] + '" ';
@@ -65,7 +68,8 @@ srnd.tag = function(text, term, properties, case_s) {
 
     }
   }
-  attributes = attributes.length ? ' ' + attributes.substr(0, attributes.length - 1) : '';
+  attributes = attributes.length ? ' ' + attributes.substr(0, attributes.length -
+    1) : '';
   var tags = {
     open_tag: '<' + properties.element + attributes + '>',
     close_tag: '</' + properties.element + '>'
@@ -74,13 +78,11 @@ srnd.tag = function(text, term, properties, case_s) {
 }
 
 /**
- * highlight
- *
  * Shorthand for highlighting text yellow using surround.
  *
- * @param string text       The text to search through.
- * @param string term       The search term.
- * @param bool   case_s     Whether to use case-sensitive search.
+ * @param string text The text to search through.
+ * @param string term The search term.
+ * @param bool case_s Whether to use case-sensitive search.
  */
 srnd.highlight = function(text, term, case_s) {
   var properties = {
@@ -91,13 +93,11 @@ srnd.highlight = function(text, term, case_s) {
 }
 
 /**
- * bold
- *
  * Shorthand for making text bold using surround.
  *
- * @param string text       The text to search through.
- * @param string term       The search term.
- * @param bool   case_s     Whether to use case-sensitive search.
+ * @param string text The text to search through.
+ * @param string term The search term.
+ * @param bool case_s Whether to use case-sensitive search.
  */
 srnd.bold = function(text, term, case_s) {
   var properties = {
@@ -107,13 +107,11 @@ srnd.bold = function(text, term, case_s) {
 }
 
 /**
- * italicize
- *
  * Shorthand for italicizing text using surround.
  *
- * @param string text       The text to search through.
- * @param string term       The search term.
- * @param bool   case_s     Whether to use case-sensitive search.
+ * @param string text The text to search through.
+ * @param string term The search term.
+ * @param bool case_s Whether to use case-sensitive search.
  */
 srnd.italicize = function(text, term, case_s) {
   var properties = {
