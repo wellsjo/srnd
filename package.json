@@ -1,19 +1,16 @@
 {
-  "name": "surround.js",
+  "name": "srnd",
   "version": "0.0.1",
-  "description": "A small but elegent and fast utility belt for searching through large strings of text and wrapping search results in tags.  Faster than regex.",
-  "main": "surround.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Easily search text and wrap results in tags. Flexible, as well as faster and cleaner than using regex",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wellsjo/surround.js.git"
+    "url": "git+https://github.com/wellsjo/srnd.git"
   },
   "author": "Wells Johnston",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wellsjo/surround.js/issues"
-  },
-  "homepage": "https://github.com/wellsjo/surround.js#readme"
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "uglifyjs": "^2.4.10"
+  }
 }
