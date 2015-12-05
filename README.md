@@ -2,9 +2,9 @@
 
 srnd provides utility functions for searching through large strings of text and wrapping search results in custom tags.
 
-### Api
+## Api
 
-# surround(text, term, tag[, caseSensitive])
+### surround(text, term, tag[, caseSensitive])
 Wrap search terms in `text` with `term`. Optionally case sensitive search, default is true.
 
 **Example 1**  
@@ -35,7 +35,7 @@ output
 Really, really long <a href='some_url.com'>string</a> of text.
 ```
 
-# tag(text, term, properties[, caseSensitive])
+### tag(text, term, properties[, caseSensitive])
 
 Shorthand for creating HTML elements.
 
@@ -55,5 +55,5 @@ srnd.tag(text, 'buttons', element_properties);
 // I want to make a <button class="btn btn-danger" some_attribute>button</button> around a word.
 ```
 
-## License
+# License
 MIT
