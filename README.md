@@ -1,10 +1,10 @@
 # srnd
 
-srnd is a set of utility functions for searching through large strings of text and wrapping search results in custom tags.
+srnd provides utility functions for searching through large strings of text and wrapping search results in custom tags.
 
 ## Api
 
-**surround(text, term, tag[, case_sensitive])**  
+**surround(text, term, tag[, caseSensitive])**  
 
 Simple example
 ```javascript
@@ -19,19 +19,22 @@ srnd.surround(text, 'really', '*');
 ```
 Custom tags
 ```javascript
-var my_tags = {
+var tags = {
   open_tag: "<a href='some_url.com'>",
   close_tag: "</a>"
 };
 
-srnd.surround(text, 'string', my_tags);
+srnd.surround(text, 'string', tags);
 ```
 ```
 Really, really long <a href='some_url.com'>string</a> of text.
 ```
 
-**tag(text, term, properties[, case_sensitive])**  
-Shorthand for creating custom HTML elements
+**tag(text, term, properties[, caseSensitive])**  
+
+Shorthand for creating HTML elements.
+
+Example
 ```javascript
 var text = 'I want to make a button around a word.';
 
