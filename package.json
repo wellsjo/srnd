@@ -1,7 +1,7 @@
 {
   "name": "srnd",
   "version": "0.0.3",
-  "description": "Easily search text and wrap results in tags.  Fast and supports HTML attributes.",
+  "description": "Easily search text and wrap results in tags or create HTML elements",
   "main": "index.js",
   "repository": {
     "type": "git",
