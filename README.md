@@ -2,11 +2,13 @@
 
 srnd provides utility functions for searching through large strings of text and wrapping search results in custom tags.
 
-## Api
+### Api
 
-**surround(text, term, tag[, caseSensitive])**  
+# surround(text, term, tag[, caseSensitive])
+Wrap search terms in `text` with `term`. Optionally case sensitive search, default is true.
 
-Simple example
+**Example 1**  
+code
 ```javascript
 var srnd = require('srnd');
 
@@ -14,10 +16,12 @@ var text = 'Really, really long string of text.';
 
 srnd.surround(text, 'really', '*');
 ```
+output
 ```
 *Really*, *really* long string of text.
 ```
-Custom tags
+**Example 2**  
+code
 ```javascript
 var tags = {
   open_tag: "<a href='some_url.com'>",
@@ -26,11 +30,12 @@ var tags = {
 
 srnd.surround(text, 'string', tags);
 ```
+output
 ```
 Really, really long <a href='some_url.com'>string</a> of text.
 ```
 
-**tag(text, term, properties[, caseSensitive])**  
+# tag(text, term, properties[, caseSensitive])
 
 Shorthand for creating HTML elements.
 

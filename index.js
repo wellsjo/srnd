@@ -16,14 +16,17 @@ module.exports = srnd;
  * @param {string} term The term to search for in text.
  * @param {string|object} tag The string that will wrap all instances of term
  * in text. If tag is an object, you can specify open and close tags with tag.
- * @param bool case_s Optional. If true, search will be case sensitive. Default
+ * @param bool caseSensitive Optional. If true, search will be case sensitive. Default
  * is false.
  */
 
-srnd.surround = function(text, term, tag, case_s) {
-  var last_index = text.length,
-    indeces = Array(),
-    index, open_tag, close_tag;
+srnd.surround = function(text, term, tag, caseSensitive) {
+  var index, open_tag, close_tag;
+  var last_index = text.length;
+  var varindeces = Array();
+  if (caseSensitive == null) {
+    caseSensitive = true;
+  }
   if (typeof tag === 'string') {
     open_tag = tag;
     close_tag = tag;
@@ -31,17 +34,16 @@ srnd.surround = function(text, term, tag, case_s) {
     open_tag = tag.open_tag;
     close_tag = tag.close_tag;
   }
-  index = case_s ? text.lastIndexOf(term) : text.toLowerCase().lastIndexOf(
+  index = caseSensitive ? text.lastIndexOf(term) : text.toLowerCase().lastIndexOf(
     term.toLowerCase());
   while (index !== -1) {
     text = text.substring(0, index) + open_tag + text.substring(index, index +
       term.length) + close_tag + text.substring(index + term.length);
-    index = case_s ? text.lastIndexOf(term, index - 1) : text.toLowerCase().lastIndexOf(
+    index = caseSensitive ? text.lastIndexOf(term, index - 1) : text.toLowerCase().lastIndexOf(
       term.toLowerCase(), index - 1);
   }
   return text;
-}
-
+};
 
 /**
  * Shorthand for creating html elements using surround.
@@ -53,10 +55,10 @@ srnd.surround = function(text, term, tag, case_s) {
  * attributes are key-value pairs on the properties object.Ex: { element: 'a',
  * class: "btn btn-danger", hidden: null } will produce: <a class="btn
  * btn-danger" hidden>{term}</a>
- * @param bool case_s Optional) Whether to use case-sensitive search.
+ * @param bool caseSensitive Optional) Whether to use case-sensitive search.
  */
 
-srnd.tag = function(text, term, properties, case_s) {
+srnd.tag = function(text, term, properties, caseSensitive) {
   var attributes = '';
   for (attribute in properties) {
     if (attribute !== 'element') {
@@ -74,5 +76,5 @@ srnd.tag = function(text, term, properties, case_s) {
     open_tag: '<' + properties.element + attributes + '>',
     close_tag: '</' + properties.element + '>'
   };
-  return srnd.surround(text, term, tags, case_s);
-}
+  return srnd.surround(text, term, tags, caseSensitive);
+};
