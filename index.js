@@ -1,6 +1,4 @@
 /**
- * srnd
- *
  * Utility functions for wrapping strings of text in various ways.
  *
  * @author Wells Johnston <w@wellsjohnston.com>
@@ -21,6 +19,7 @@ module.exports = srnd;
  * @param bool case_s Optional. If true, search will be case sensitive. Default
  * is false.
  */
+
 srnd.surround = function(text, term, tag, case_s) {
   var last_index = text.length,
     indeces = Array(),
@@ -56,6 +55,7 @@ srnd.surround = function(text, term, tag, case_s) {
  * btn-danger" hidden>{term}</a>
  * @param bool case_s Optional) Whether to use case-sensitive search.
  */
+
 srnd.tag = function(text, term, properties, case_s) {
   var attributes = '';
   for (attribute in properties) {
@@ -75,47 +75,4 @@ srnd.tag = function(text, term, properties, case_s) {
     close_tag: '</' + properties.element + '>'
   };
   return srnd.surround(text, term, tags, case_s);
-}
-
-/**
- * Shorthand for highlighting text yellow using surround.
- *
- * @param string text The text to search through.
- * @param string term The search term.
- * @param bool case_s Whether to use case-sensitive search.
- */
-srnd.highlight = function(text, term, case_s) {
-  var properties = {
-    element: 'span',
-    style: 'background-color:yellow',
-  }
-  return srnd.tag(text, term, properties, case_s);
-}
-
-/**
- * Shorthand for making text bold using surround.
- *
- * @param string text The text to search through.
- * @param string term The search term.
- * @param bool case_s Whether to use case-sensitive search.
- */
-srnd.bold = function(text, term, case_s) {
-  var properties = {
-    element: 'strong',
-  }
-  return srnd.tag(text, term, properties, case_s);
-}
-
-/**
- * Shorthand for italicizing text using surround.
- *
- * @param string text The text to search through.
- * @param string term The search term.
- * @param bool case_s Whether to use case-sensitive search.
- */
-srnd.italicize = function(text, term, case_s) {
-  var properties = {
-    element: 'em',
-  }
-  return srnd.tag(text, term, properties, case_s);
 }

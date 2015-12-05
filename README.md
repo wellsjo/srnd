@@ -47,29 +47,5 @@ srnd.tag(text, 'buttons', element_properties);
 // I want to make a <button class="btn btn-danger" some_attribute>button</button> around a word.
 ```
 
-**highlight(text, term[, case_sensitive])**  
-Shorthand for highlighting text yellow (in HTML)
-```javascript
-var text = 'I want to highlight a word in this sentence.';
-srnd.highlight(text, 'highlight'); 
-// I want to <span style="background-color: yellow">highlight</span> a word in this sentence.
-```
-
-**bold(text, term[, case_sensitive])**  
-Shorthand for bolding text (in HTML)
-```javascript
-var text = 'I want to bold a word in this sentence.';
-srnd.highlight(text, 'bold'); 
-// I want to <strong>bold</strong> a word in this sentence.
-```
-
-**italicize(text, term[, case_sensitive])**  
-Shorthand for italicizing text (in HTML)
-```javascript
-var text = 'I want to italicize a word in this sentence.';
-srnd.highlight(text, 'italicize'); 
-// I want to <em>italicize</em> a word in this sentence.
-```
-
 ## License
 MIT
